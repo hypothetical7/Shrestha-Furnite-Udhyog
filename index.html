@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrestha Furniture Udyog – Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&family=Tiro+Devanagari+Nepali:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- ★ EmailJS SDK — must come BEFORE your script ★ -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F5EFE4;--warm:#FAF7F2;--wood:#8B5E3C;--dwood:#5C3D1E;
+  --char:#2A2520;--gold:#C89B4F;--lgold:#E8C880;--muted:#9A8D80;
+  --border:#D6CAB8;--green:#25D366;--red:#E05252;
+  --shadow:0 4px 24px rgba(0,0,0,.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--warm);color:var(--char);overflow-x:hidden}
+body.lang-np{font-family:'Tiro Devanagari Nepali',serif}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit}
+
+/* LANG TOGGLE */
+.lang-toggle{position:fixed;top:1rem;right:13rem;z-index:400;display:flex;background:#fff;border:1px solid var(--border);border-radius:30px;padding:3px;box-shadow:var(--shadow)}
+.lb{padding:.28rem .9rem;border:none;background:transparent;font-size:.72rem;letter-spacing:.08em;cursor:pointer;border-radius:20px;color:var(--muted);font-weight:500;transition:all .2s}
+.lb.on{background:var(--dwood);color:#fff}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:300;background:rgba(250,247,242,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:.9rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;color:var(--dwood);white-space:nowrap}
+.nav-logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--char);transition:color .2s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--wood)}
+.nav-links a:hover::after{width:100%}
+.cart-btn{background:var(--dwood);color:#fff;border:none;padding:.5rem 1.2rem;border-radius:3px;font-size:.76rem;letter-spacing:.08em;display:flex;align-items:center;gap:.5rem;transition:background .2s;white-space:nowrap}
+.cart-btn:hover{background:var(--wood)}
+.cart-count{background:var(--gold);color:var(--char);border-radius:50%;width:18px;height:18px;font-size:.65rem;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+
+/* HERO */
+.hero{padding-top:4.5rem;background:var(--char);min-height:52vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(200,155,79,.1) 0%,transparent 70%)}
+.hero-inner{position:relative;padding:5rem 2rem}
+.hero-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;gap:.8rem}
+.hero-tag::before,.hero-tag::after{content:'';display:block;width:2rem;height:1px;background:var(--gold)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:#fff;line-height:1.1;margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--lgold)}
+.hero p{font-size:.92rem;color:var(--muted);max-width:520px;margin:0 auto 2rem;line-height:1.8}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--char);border:none;padding:.8rem 2rem;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all .3s;display:inline-block}
+.btn-gold:hover{background:var(--lgold);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);padding:.8rem 2rem;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;transition:all .3s;display:inline-block}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SHOP */
+.shop{padding:5rem 3rem}
+.section-eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:flex;align-items:center;gap:.7rem}
+.section-eyebrow::before{content:'';display:block;width:1.2rem;height:1px;background:var(--gold)}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;margin-bottom:1.8rem}
+.section-title em{font-style:italic;color:var(--wood)}
+.filter-bar{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{padding:.42rem 1.1rem;border:1px solid var(--border);border-radius:30px;font-size:.74rem;letter-spacing:.06em;background:#fff;color:var(--char);transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--dwood);color:#fff;border-color:var(--dwood)}
+
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.product-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.product-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#e8d8c4,#c4a07a)}
+.product-img-wrap .p-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s;display:none}
+.product-card:hover .product-img-wrap .p-img{transform:scale(1.05)}
+.product-img-wrap .p-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.product-badge{position:absolute;top:.8rem;left:.8rem;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2px;font-weight:600;z-index:3}
+.product-badge.sale{background:var(--red);color:#fff}
+.product-badge.new{background:var(--dwood);color:#fff}
+.product-body{padding:1.3rem;display:flex;flex-direction:column;flex:1}
+.product-cat{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.product-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:.35rem;line-height:1.2}
+.product-desc{font-size:.78rem;color:var(--muted);line-height:1.6;margin-bottom:.9rem;flex:1}
+.product-price-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:auto}
+.product-price{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--dwood);font-weight:600}
+.product-price small{font-family:'Jost',sans-serif;font-size:.72rem;color:var(--muted);font-weight:400}
+.card-btns{display:flex;gap:.4rem}
+.view-btn{background:transparent;color:var(--dwood);border:1px solid var(--border);padding:.5rem .85rem;border-radius:3px;font-size:.7rem;letter-spacing:.06em;transition:all .2s}
+.view-btn:hover{border-color:var(--dwood)}
+.add-cart-btn{background:var(--dwood);color:#fff;border:none;padding:.5rem .95rem;border-radius:3px;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;white-space:nowrap}
+.add-cart-btn:hover{background:var(--wood)}
+
+/* PRODUCT MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:8px;max-width:980px;width:100%;margin:auto;overflow:hidden;animation:slideUp .3s ease;position:relative}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.1);border:none;width:34px;height:34px;border-radius:50%;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10}
+.modal-close:hover{background:rgba(0,0,0,.2)}
+.modal-inner{display:grid;grid-template-columns:1fr 1fr}
+.modal-img-side{background:linear-gradient(135deg,#e8d8c4,#a07850);position:relative;min-height:400px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-img-side .m-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.modal-img-side .m-emoji{font-size:7rem;position:relative;z-index:1}
+.modal-thumbs{display:flex;gap:.5rem;padding:.8rem;background:#f5f0e8;overflow-x:auto;min-height:76px}
+.modal-thumb{width:60px;height:60px;border-radius:3px;object-fit:cover;cursor:pointer;border:2px solid transparent;flex-shrink:0;transition:border-color .2s;display:block}
+.modal-thumb.active,.modal-thumb:hover{border-color:var(--gold)}
+.modal-thumb-emoji{width:60px;height:60px;background:linear-gradient(135deg,#e8d8c4,#a07850);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:2px solid var(--gold);flex-shrink:0}
+.modal-info{padding:2.2rem;overflow-y:auto;max-height:85vh}
+.modal-cat{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.modal-name{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;line-height:1.15;margin-bottom:.8rem}
+.modal-desc{font-size:.84rem;line-height:1.85;color:#5a5048;margin-bottom:1.2rem}
+.price-box{background:var(--warm);border:1px solid var(--border);border-radius:6px;padding:1rem 1.2rem;margin-bottom:1.3rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.live-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--dwood);font-weight:600}
+.price-breakdown{font-size:.72rem;color:var(--muted);line-height:1.7;margin-top:.2rem}
+.price-change-flash{animation:priceFlash .35s ease}
+@keyframes priceFlash{0%{transform:scale(1.08);color:var(--gold)}100%{transform:scale(1);color:var(--dwood)}}
+.option-group{margin-bottom:1.1rem}
+.option-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.selected-val{color:var(--char);font-size:.82rem;text-transform:none;letter-spacing:0;font-weight:500}
+.colour-options{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.colour-swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .2s}
+.colour-swatch.on{border-color:var(--dwood);box-shadow:0 0 0 2px #fff inset}
+.colour-swatch:hover{transform:scale(1.15)}
+.size-options,.wood-options{display:flex;gap:.5rem;flex-wrap:wrap}
+.opt-btn{padding:.35rem .85rem;border:1px solid var(--border);border-radius:3px;font-size:.76rem;background:#fff;color:var(--char);transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:.1rem}
+.opt-btn.on{background:var(--dwood);color:#fff;border-color:var(--dwood)}
+.opt-btn:hover:not(.on){border-color:var(--wood)}
+.opt-price-tag{font-size:.64rem;opacity:.75}
+.qty-wrap{display:flex;align-items:center;gap:.6rem}
+.qty-btn{width:32px;height:32px;border:1px solid var(--border);background:#fff;border-radius:3px;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.qty-btn:hover{background:var(--dwood);color:#fff;border-color:var(--dwood)}
+.qty-val{font-size:1rem;font-weight:500;min-width:24px;text-align:center}
+.features-list{margin-bottom:1.2rem}
+.features-list h4{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.features-list ul{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.features-list li{font-size:.8rem;color:var(--char);display:flex;align-items:center;gap:.5rem}
+.features-list li::before{content:'✓';color:var(--gold);font-weight:700}
+.modal-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.2rem}
+.btn-add-cart-lg{flex:1;background:var(--dwood);color:#fff;border:none;padding:.9rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;transition:background .2s;min-width:140px}
+.btn-add-cart-lg:hover{background:var(--wood)}
+.btn-wa{background:var(--green);color:#fff;border:none;padding:.9rem 1.1rem;border-radius:3px;font-size:.8rem;display:flex;align-items:center;gap:.5rem;transition:all .2s;white-space:nowrap}
+.btn-wa:hover{background:#1ebe5a}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* CART DRAWER */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:600;display:none}
+.cart-overlay.open{display:block}
+.cart-drawer{position:fixed;top:0;right:-430px;height:100%;width:min(430px,100vw);background:#fff;z-index:700;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15)}
+.cart-drawer.open{right:0}
+.cart-head{padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.cart-head h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600}
+.cart-close-btn{background:none;border:none;font-size:1.4rem;color:var(--muted);transition:color .2s}
+.cart-close-btn:hover{color:var(--char)}
+.cart-items{flex:1;overflow-y:auto;padding:1rem}
+.cart-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem;color:var(--muted)}
+.cart-empty-icon{font-size:3.5rem;opacity:.35}
+.cart-item{display:flex;gap:.8rem;padding:.9rem;border:1px solid var(--border);border-radius:4px;margin-bottom:.7rem;position:relative}
+.ci-img{width:66px;height:66px;border-radius:3px;flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#e8d8c4,#a07850);display:flex;align-items:center;justify-content:center;font-size:1.8rem;position:relative}
+.ci-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:.88rem;font-weight:500;margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-opts{font-size:.72rem;color:var(--muted);margin-bottom:.35rem;line-height:1.4}
+.ci-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--dwood);font-weight:600}
+.ci-remove{position:absolute;top:.7rem;right:.7rem;background:none;border:none;color:var(--muted);font-size:.85rem;transition:color .2s}
+.ci-remove:hover{color:var(--red)}
+.ci-qty{display:flex;align-items:center;gap:.4rem;margin-top:.35rem}
+.cqb{width:24px;height:24px;border:1px solid var(--border);background:#fff;border-radius:2px;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cqb:hover{background:var(--dwood);color:#fff;border-color:var(--dwood)}
+.cqv{font-size:.85rem;min-width:20px;text-align:center}
+.cart-foot{border-top:1px solid var(--border);padding:1.2rem 1.5rem}
+.cart-subtotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.cart-subtotal span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cart-subtotal strong{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--dwood)}
+.checkout-btn{width:100%;background:var(--dwood);color:#fff;border:none;padding:.95rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;transition:background .2s;margin-bottom:.6rem}
+.checkout-btn:hover{background:var(--wood)}
+.continue-btn{width:100%;background:transparent;color:var(--char);border:1px solid var(--border);padding:.7rem;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;border-radius:3px;transition:all .2s}
+.continue-btn:hover{border-color:var(--dwood)}
+
+/* CHECKOUT */
+.checkout-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:800;display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto}
+.checkout-overlay.open{display:flex}
+.checkout-modal{background:#fff;border-radius:8px;max-width:760px;width:100%;margin:auto;overflow:hidden;animation:slideUp .3s ease;position:relative}
+.checkout-inner{display:grid;grid-template-columns:1.1fr 1fr}
+.checkout-left{padding:2.5rem}
+.checkout-right{padding:2.5rem;background:var(--warm);border-left:1px solid var(--border)}
+.checkout-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;margin-bottom:.3rem}
+.checkout-sub{font-size:.78rem;color:var(--muted);margin-bottom:1.8rem;line-height:1.6}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.38rem}
+.form-input,.form-select,.form-textarea{width:100%;border:1px solid var(--border);border-radius:3px;padding:.65rem .85rem;font-family:'Jost',sans-serif;font-size:.86rem;color:var(--char);background:#fff;outline:none;transition:border-color .2s,box-shadow .2s}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,155,79,.12)}
+.form-textarea{resize:vertical;min-height:75px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A8D80' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center}
+.co-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:1rem;font-weight:600}
+.co-items{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1rem;max-height:260px;overflow-y:auto}
+.co-item{display:flex;gap:.7rem;align-items:center}
+.co-img{width:48px;height:48px;border-radius:3px;background:linear-gradient(135deg,#e8d8c4,#a07850);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;overflow:hidden;position:relative}
+.co-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.co-info{flex:1;min-width:0}
+.co-name{font-size:.82rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.co-opts{font-size:.7rem;color:var(--muted);line-height:1.4}
+.co-price{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dwood);font-weight:600;white-space:nowrap}
+.divider{height:1px;background:var(--border);margin:.9rem 0}
+.total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem;font-size:.82rem}
+.total-row span{color:var(--muted)}
+.total-row strong{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--dwood)}
+.place-btn{width:100%;background:var(--dwood);color:#fff;border:none;padding:1rem;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;transition:all .2s;margin-top:1.2rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.place-btn:hover{background:var(--wood)}
+.place-btn:disabled{background:var(--muted);cursor:not-allowed;opacity:.7}
+.place-btn .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.place-btn.loading .spinner{display:block}
+.place-btn.loading .btn-label{opacity:.7}
+@keyframes spin{to{transform:rotate(360deg)}}
+.checkout-close{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.08);border:none;width:32px;height:32px;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.checkout-close:hover{background:rgba(0,0,0,.16)}
+
+/* EMAIL FIELD HINT */
+.email-hint{font-size:.68rem;color:var(--gold);margin-top:.3rem;display:flex;align-items:center;gap:.3rem}
+.email-hint::before{content:'✉';font-size:.8rem}
+
+/* CONFIRMATION */
+.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:900;display:none;align-items:center;justify-content:center;padding:2rem}
+.confirm-overlay.open{display:flex}
+.confirm-box{background:#fff;border-radius:8px;max-width:500px;width:100%;padding:3rem 2.5rem;text-align:center;animation:slideUp .3s ease}
+.confirm-icon{font-size:3.5rem;margin-bottom:1rem}
+.confirm-title{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--dwood);margin-bottom:.5rem}
+.confirm-sub{font-size:.86rem;color:var(--muted);line-height:1.75;margin-bottom:.8rem}
+.confirm-oid{display:inline-block;background:var(--warm);border:1px solid var(--border);padding:.4rem 1rem;border-radius:3px;font-size:.8rem;letter-spacing:.1em;margin-bottom:1.5rem;font-family:monospace}
+.confirm-email-note{background:#f0faf4;border:1px solid #b2e0c4;border-radius:4px;padding:.75rem 1rem;font-size:.78rem;color:#2d7a4f;margin-bottom:1.2rem;line-height:1.6}
+.confirm-actions{display:flex;flex-direction:column;gap:.7rem}
+.confirm-wa{background:var(--green);color:#fff;border:none;padding:.9rem;border-radius:3px;font-size:.82rem;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:background .2s;cursor:pointer}
+.confirm-wa:hover{background:#1ebe5a}
+.confirm-wa svg{width:18px;height:18px;fill:#fff}
+.confirm-done{background:var(--dwood);color:#fff;border:none;padding:.9rem;border-radius:3px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;transition:background .2s;cursor:pointer}
+.confirm-done:hover{background:var(--wood)}
+
+/* WHY / FOOTER / FLOAT */
+.why{padding:5rem 3rem;background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
+.why-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:2rem 1.3rem;text-align:center;transition:box-shadow .3s}
+.why-card:hover{box-shadow:var(--shadow)}
+.why-icon{font-size:1.8rem;margin-bottom:.8rem}
+.why-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin-bottom:.4rem}
+.why-text{font-size:.78rem;color:var(--muted);line-height:1.7}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;background:var(--green);color:#fff;border:none;border-radius:50px;padding:.8rem 1.5rem;display:flex;align-items:center;gap:.55rem;font-size:.8rem;font-weight:500;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;text-decoration:none}
+.wa-float:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,211,102,.5)}
+.wa-float svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+footer{background:var(--char);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:#fff;font-weight:600}
+.footer-logo span{color:var(--gold);font-style:italic}
+.footer-copy{font-size:.72rem;color:var(--muted)}
+.toast{position:fixed;bottom:6rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--char);color:#fff;padding:.75rem 1.5rem;border-radius:4px;font-size:.82rem;opacity:0;transition:all .3s;z-index:1000;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:900px){
+  nav{padding:.8rem 1.5rem}
+  .nav-links{display:none}
+  .lang-toggle{right:8rem}
+  .modal-inner,.checkout-inner{grid-template-columns:1fr}
+  .modal-img-side{min-height:240px;font-size:5rem}
+  .modal-info{max-height:none;padding:1.5rem}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .shop,.why{padding:3.5rem 1.5rem}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem}
+}
+@media(max-width:560px){
+  .why-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .lang-toggle{right:5.5rem;top:.8rem}
+  .checkout-inner{grid-template-columns:1fr}
+  .checkout-right{border-left:none;border-top:1px solid var(--border)}
+}
+</style>
+</head>
+<body id="body" class="lang-en">
+
+<div class="toast" id="toast"></div>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/9779826928632?text=Hello%2C%20I%20have%20a%20question." target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span data-en="WhatsApp Us" data-np="WhatsApp गर्नुहोस्">WhatsApp Us</span>
+</a>
+
+<!-- LANG TOGGLE -->
+<div class="lang-toggle">
+  <button class="lb on" id="btn-en" onclick="setLang('en')">EN</button>
+  <button class="lb" id="btn-np" onclick="setLang('np')">नेपाली</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" id="nav-logo">Shrestha <span>Furniture</span></div>
+  <ul class="nav-links">
+    <li><a href="#shop" data-en="Shop" data-np="पसल">Shop</a></li>
+    <li><a href="#why" data-en="About" data-np="बारेमा">About</a></li>
+    <li><a href="https://wa.me/9779826928632" target="_blank" data-en="Contact" data-np="सम्पर्क">Contact</a></li>
+  </ul>
+  <button class="cart-btn" onclick="openCart()">
+    🛒 <span data-en="Cart" data-np="कार्ट">Cart</span>
+    <span class="cart-count" id="cart-count">0</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag" data-en="Kerkha, Jhapa · Nepal" data-np="केर्खा, झापा · नेपाल">Kerkha, Jhapa · Nepal</div>
+    <h1 data-en="Fine Furniture,<br><em>Delivered to You</em>" data-np="उत्कृष्ट फर्निचर,<br><em>तपाईंकहाँ</em>">Fine Furniture,<br><em>Delivered to You</em></h1>
+    <p data-en="Pick your size, colour, and wood type — price updates instantly. Order directly and we'll confirm within 24 hours." data-np="आफ्नो साइज, रंग र काठको प्रकार छान्नुहोस् — मूल्य तुरुन्तै अपडेट हुन्छ। सिधै अर्डर गर्नुहोस् र हामी २४ घण्टाभित्र पुष्टि गर्नेछौँ।">Pick your size, colour, and wood type — price updates instantly. Order directly and we'll confirm within 24 hours.</p>
+    <div class="hero-btns">
+      <a href="#shop" class="btn-gold" data-en="Shop Now" data-np="अहिले किन्नुहोस्">Shop Now</a>
+      <a href="https://wa.me/9779826928632" target="_blank" class="btn-outline" data-en="Ask on WhatsApp" data-np="WhatsApp मा सोध्नुहोस्">Ask on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="section-eyebrow" data-en="Product Catalog" data-np="उत्पादन क्याटलग">Product Catalog</div>
+  <h2 class="section-title" data-en="Our <em>Collection</em>" data-np="हाम्रो <em>संग्रह</em>">Our <em>Collection</em></h2>
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all',this)" data-en="All Items" data-np="सबै">All Items</button>
+    <button class="filter-btn" onclick="filterProducts('bedroom',this)" data-en="Bedroom" data-np="बेडरूम">Bedroom</button>
+    <button class="filter-btn" onclick="filterProducts('living',this)" data-en="Living Room" data-np="बैठक कोठा">Living Room</button>
+    <button class="filter-btn" onclick="filterProducts('dining',this)" data-en="Dining" data-np="डाइनिङ">Dining</button>
+    <button class="filter-btn" onclick="filterProducts('office',this)" data-en="Office" data-np="कार्यालय">Office</button>
+    <button class="filter-btn" onclick="filterProducts('storage',this)" data-en="Storage" data-np="भण्डारण">Storage</button>
+  </div>
+  <div class="product-grid" id="product-grid">
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">Loading products…</div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div style="text-align:center">
+    <div class="section-eyebrow" style="justify-content:center" data-en="Why Buy From Us" data-np="हामीबाट किन किन्ने">Why Buy From Us</div>
+    <h2 class="section-title" data-en="Quality you can <em>trust</em>" data-np="विश्वास गर्न सकिने <em>गुणस्तर</em>">Quality you can <em>trust</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">🪵</div><div class="why-title" data-en="Premium Wood" data-np="उत्कृष्ट काठ">Premium Wood</div><p class="why-text" data-en="Hand-selected timber for every piece we make." data-np="प्रत्येक उत्पादनमा हातले छानिएको काठ।">Hand-selected timber for every piece we make.</p></div>
+    <div class="why-card"><div class="why-icon">📦</div><div class="why-title" data-en="Local Delivery" data-np="स्थानीय डेलिभरी">Local Delivery</div><p class="why-text" data-en="We deliver across Jhapa and nearby districts." data-np="झापा र नजिकका जिल्लाहरूमा डेलिभरी।">We deliver across Jhapa and nearby districts.</p></div>
+    <div class="why-card"><div class="why-icon">🎨</div><div class="why-title" data-en="Live Pricing" data-np="लाइभ मूल्य">Live Pricing</div><p class="why-text" data-en="Price updates instantly as you pick size, colour and material." data-np="साइज, रंग र सामग्री छान्दा मूल्य तुरुन्तै अपडेट हुन्छ।">Price updates instantly as you pick size, colour and material.</p></div>
+    <div class="why-card"><div class="why-icon">⭐</div><div class="why-title" data-en="5-Star Rated" data-np="५-स्टार रेटेड">5-Star Rated</div><p class="why-text" data-en="Trusted by families across Kerkha and Jhapa." data-np="केर्खा र झापाका परिवारहरूको विश्वास।">Trusted by families across Kerkha and Jhapa.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo" id="footer-logo">Shrestha <span>Furniture</span> Udyog</div>
+  <div class="footer-copy" data-en="© 2026 Shrestha Furniture Udyog · Kerkha, Jhapa, Nepal · +977 982-6928632" data-np="© २०२६ श्रेष्ठ फर्निचर उद्योग · केर्खा, झापा · +977 982-6928632">© 2026 Shrestha Furniture Udyog · Kerkha, Jhapa, Nepal · +977 982-6928632</div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOut(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div>
+        <div class="modal-img-side" id="modal-img-side">
+          <img class="m-img" id="modal-main-img" src="" alt=""/>
+          <span class="m-emoji" id="modal-emoji"></span>
+        </div>
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-cat"  id="modal-cat"></div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-desc" id="modal-desc"></div>
+        <div class="price-box">
+          <div>
+            <div style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem" data-en="Price for selected options" data-np="छानिएको विकल्पको मूल्य">Price for selected options</div>
+            <div class="live-price" id="live-price">Rs 0</div>
+            <div class="price-breakdown" id="price-breakdown"></div>
+          </div>
+          <div style="text-align:right">
+            <div class="qty-wrap">
+              <button class="qty-btn" onclick="changeQty(-1)">−</button>
+              <span class="qty-val" id="modal-qty">1</span>
+              <button class="qty-btn" onclick="changeQty(1)">+</button>
+            </div>
+            <div id="line-total" style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);margin-top:.3rem"></div>
+          </div>
+        </div>
+        <div class="option-group">
+          <div class="option-label"><span data-en="Colour" data-np="रंग">Colour</span>:&nbsp;<span class="selected-val" id="sel-colour-lbl"></span></div>
+          <div class="colour-options" id="colour-opts"></div>
+        </div>
+        <div class="option-group">
+          <div class="option-label"><span data-en="Size" data-np="साइज">Size</span>:&nbsp;<span class="selected-val" id="sel-size-lbl"></span></div>
+          <div class="size-options" id="size-opts"></div>
+        </div>
+        <div class="option-group">
+          <div class="option-label"><span data-en="Wood Type" data-np="काठको प्रकार">Wood Type</span>:&nbsp;<span class="selected-val" id="sel-wood-lbl"></span></div>
+          <div class="wood-options" id="wood-opts"></div>
+        </div>
+        <div class="features-list">
+          <h4 data-en="Highlights" data-np="विशेषताहरू">Highlights</h4>
+          <ul id="modal-features"></ul>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-add-cart-lg" onclick="addToCartFromModal()" data-en="Add to Cart" data-np="कार्टमा थप्नुहोस्">Add to Cart</button>
+          <button class="btn-wa" onclick="orderViaWA()">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-en="Order via WhatsApp" data-np="WhatsApp मा अर्डर">Order via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3 data-en="Your Cart" data-np="तपाईंको कार्ट">Your Cart</h3>
+    <button class="cart-close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-foot">
+    <div class="cart-subtotal">
+      <span data-en="Subtotal" data-np="उपकुल">Subtotal</span>
+      <strong id="cart-subtotal-val">Rs 0</strong>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()" data-en="Proceed to Checkout →" data-np="चेकआउटमा जानुहोस् →">Proceed to Checkout →</button>
+    <button class="continue-btn" onclick="closeCart()" data-en="Continue Shopping" data-np="किनमेल जारी राख्नुहोस्">Continue Shopping</button>
+  </div>
+</div>
+
+<!-- CHECKOUT -->
+<div class="checkout-overlay" id="checkout-overlay" onclick="closeCheckoutOut(event)">
+  <div class="checkout-modal">
+    <button class="checkout-close" onclick="closeCheckout()">✕</button>
+    <div class="checkout-inner">
+      <div class="checkout-left">
+        <div class="checkout-title" data-en="Your Details" data-np="तपाईंको विवरण">Your Details</div>
+        <div class="checkout-sub" data-en="We'll confirm your order by phone or WhatsApp within 24 hours." data-np="हामी २४ घण्टाभित्र फोन वा WhatsApp मार्फत पुष्टि गर्नेछौँ।">We'll confirm your order by phone or WhatsApp within 24 hours.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" data-en="Full Name *" data-np="पूरा नाम *">Full Name *</label>
+            <input class="form-input" id="co-name" type="text" placeholder="Ram Bahadur"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-en="Phone / WhatsApp *" data-np="फोन *">Phone / WhatsApp *</label>
+            <input class="form-input" id="co-phone" type="tel" placeholder="+977 98XXXXXXXX"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Email * (for your order confirmation)" data-np="इमेल * (अर्डर पुष्टिको लागि)">Email * (for your order confirmation)</label>
+          <input class="form-input" id="co-email" type="email" placeholder="your@email.com"/>
+          <div class="email-hint" data-en="A copy of your order will be sent here automatically." data-np="तपाईंको अर्डरको प्रति स्वतः यहाँ पठाइनेछ।">A copy of your order will be sent here automatically.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Delivery Address *" data-np="डेलिभरी ठेगाना *">Delivery Address *</label>
+          <input class="form-input" id="co-addr" type="text" placeholder="Ward, Tole, Municipality, District"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Payment Method" data-np="भुक्तानी विधि">Payment Method</label>
+          <select class="form-select" id="co-pay">
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="eSewa">eSewa</option>
+            <option value="Khalti">Khalti</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-en="Special Notes" data-np="विशेष नोट">Special Notes</label>
+          <textarea class="form-textarea" id="co-notes" placeholder="Any special requirements…"></textarea>
+        </div>
+        <button class="place-btn" id="place-btn" onclick="placeOrder()">
+          <div class="spinner"></div>
+          <span class="btn-label" data-en="Place Order →" data-np="अर्डर राख्नुहोस् →">Place Order →</span>
+        </button>
+        <div id="form-error" style="margin-top:.7rem;font-size:.78rem;color:var(--red);display:none"></div>
+      </div>
+      <div class="checkout-right">
+        <div class="co-title" data-en="Order Summary" data-np="अर्डर सारांश">Order Summary</div>
+        <div class="co-items" id="co-items"></div>
+        <div class="divider"></div>
+        <div class="total-row"><span data-en="Subtotal" data-np="उपकुल">Subtotal</span><span id="co-sub">Rs 0</span></div>
+        <div class="total-row"><span data-en="Delivery" data-np="डेलिभरी">Delivery</span><span data-en="Confirmed on call" data-np="कलमा पुष्टि">Confirmed on call</span></div>
+        <div class="divider"></div>
+        <div class="total-row"><span data-en="Total" data-np="जम्मा">Total</span><strong id="co-total">Rs 0</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMATION -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">✅</div>
+    <div class="confirm-title" data-en="Order Placed!" data-np="अर्डर गरियो!">Order Placed!</div>
+    <p class="confirm-sub" id="confirm-sub-text"></p>
+    <div class="confirm-oid" id="confirm-oid"></div>
+    <div class="confirm-email-note" id="confirm-email-note"></div>
+    <div class="confirm-actions">
+      <button class="confirm-wa" id="confirm-wa-btn">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-en="Also Send via WhatsApp" data-np="WhatsApp मार्फत पनि पठाउनुहोस्">Also Send via WhatsApp</span>
+      </button>
+      <button class="confirm-done" onclick="finishOrder()" data-en="Back to Shop" data-np="पसलमा फर्कनुहोस्">Back to Shop</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  ★  CONFIG — EDIT THESE THREE VALUES  ★
+// ═══════════════════════════════════════════════════════════
+
+const EMAILJS_PUBLIC_KEY       = '2SbvS6McsNN8-OEZ0';          // From Account → General
+const EMAILJS_SERVICE_ID       = 'service_rs9nrcd';          // e.g. shrestha_furniture
+const EMAILJS_OWNER_TEMPLATE   = 'template_k7ckh19';       // Template ID for owner email
+const EMAILJS_CUSTOMER_TEMPLATE= 'template_kggz03o';    // Template ID for customer email
+
+// Your WhatsApp number (country code + number, no +, no spaces)
+const SHOP_PHONE = '9779826928632';
+
+// ═══════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════
+let PRODUCTS = [], cart = [], lang = 'en', currentFilter = 'all';
+let activeProduct = null, modalQty = 1;
+let selColour = null, selSize = null, selWood = null;
+
+// ═══════════════════════════════════════════════════════════
+//  EMAILJS INIT
+// ═══════════════════════════════════════════════════════════
+emailjs.init(EMAILJS_PUBLIC_KEY);
+
+// ═══════════════════════════════════════════════════════════
+//  LOAD JSON
+// ═══════════════════════════════════════════════════════════
+async function loadProducts() {
+  try {
+    const res = await fetch('products.json');
+    if (!res.ok) throw new Error('not found');
+    PRODUCTS = await res.json();
+    renderProducts('all');
+  } catch {
+    document.getElementById('product-grid').innerHTML =
+      `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--red)">
+        ⚠️ Could not load products.json<br>
+        <small style="color:var(--muted)">Open this site via a local server (VS Code Live Server, or python -m http.server).</small>
+      </div>`;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+//  IMAGE HELPERS
+// ═══════════════════════════════════════════════════════════
+function productImgHtml(p) {
+  const hasImg = p.images && p.images.length > 0;
+  const src    = hasImg ? p.images[0] : '';
+  const nm     = lang === 'np' ? p.nameNp : p.name;
+  return `
+    ${hasImg ? `<img class="p-img" src="${src}" alt="${nm}"
+        onload="this.style.display='block';this.nextElementSibling.style.display='none'"
+        onerror="this.style.display='none'"
+      >` : ''}
+    <div class="p-emoji">${p.emoji}</div>
+  `;
+}
+
+// ═══════════════════════════════════════════════════════════
+//  LANGUAGE
+// ═══════════════════════════════════════════════════════════
+function setLang(l) {
+  lang = l;
+  document.getElementById('body').className = 'lang-' + l;
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  document.getElementById('btn-np').classList.toggle('on', l === 'np');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const v = el.getAttribute('data-' + l);
+    if (v !== null) el.innerHTML = v;
+  });
+  document.getElementById('nav-logo').innerHTML    = l === 'np' ? 'श्रेष्ठ <span>फर्निचर</span>'        : 'Shrestha <span>Furniture</span>';
+  document.getElementById('footer-logo').innerHTML = l === 'np' ? 'श्रेष्ठ <span>फर्निचर</span> उद्योग' : 'Shrestha <span>Furniture</span> Udyog';
+  renderProducts(currentFilter);
+  renderCartDrawer();
+  if (activeProduct) updateModalText();
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PRODUCT GRID
+// ═══════════════════════════════════════════════════════════
+function filterProducts(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+function renderProducts(cat) {
+  const list = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+  const grid = document.getElementById('product-grid');
+  if (!list.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--muted)">${lang==='np'?'कुनै उत्पादन फेला परेन':'No products found'}</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(p => {
+    const nm    = lang === 'np' ? p.nameNp : p.name;
+    const ct    = lang === 'np' ? p.catNp  : p.cat;
+    const ds    = lang === 'np' ? p.descNp : p.desc;
+    const baseP = p.sizes[0].price;
+    const badge = p.badge
+      ? `<div class="product-badge ${p.badge}">${p.badge==='sale'?(lang==='np'?'छूट':'Sale'):(lang==='np'?'नयाँ':'New')}</div>`
+      : '';
+    return `
+    <div class="product-card">
+      <div class="product-img-wrap" onclick="openModal(${p.id})">
+        ${badge}
+        ${productImgHtml(p)}
+      </div>
+      <div class="product-body">
+        <div class="product-cat">${ct}</div>
+        <div class="product-name">${nm}</div>
+        <div class="product-desc">${ds.substring(0,90)}…</div>
+        <div class="product-price-row">
+          <div class="product-price">
+            ${lang==='np'?'रु':'Rs'} ${baseP.toLocaleString()}
+            <small>${lang==='np'?'देखि':'from'}</small>
+          </div>
+          <div class="card-btns">
+            <button class="view-btn"     onclick="openModal(${p.id})">${lang==='np'?'हेर्नुहोस्':'View'}</button>
+            <button class="add-cart-btn" onclick="quickAdd(${p.id})">${lang==='np'?'कार्ट':'Add'}</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PRODUCT MODAL
+// ═══════════════════════════════════════════════════════════
+function openModal(id) {
+  activeProduct = PRODUCTS.find(p => p.id === id);
+  if (!activeProduct) return;
+  modalQty  = 1;
+  selColour = activeProduct.colours[0];
+  selSize   = activeProduct.sizes[0];
+  selWood   = activeProduct.woodTypes[0];
+  renderModal();
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderModal() {
+  const p      = activeProduct;
+  const hasImg = p.images && p.images.length > 0;
+  const imgEl  = document.getElementById('modal-main-img');
+  const emoEl  = document.getElementById('modal-emoji');
+
+  if (hasImg) {
+    imgEl.src = p.images[0];
+    imgEl.onload  = () => { imgEl.style.display = 'block'; emoEl.style.display = 'none'; };
+    imgEl.onerror = () => { imgEl.style.display = 'none';  emoEl.style.display = 'block'; };
+    emoEl.style.display = 'none';
+  } else {
+    imgEl.style.display = 'none';
+    emoEl.style.display = 'block';
+  }
+  emoEl.textContent = p.emoji;
+
+  const thumbsEl = document.getElementById('modal-thumbs');
+  if (hasImg) {
+    thumbsEl.innerHTML = p.images.map((src, i) => `
+      <img class="modal-thumb ${i===0?'active':''}"
+           src="${src}" alt=""
+           onclick="switchMainImg('${src}',this)"
+           onerror="this.style.display='none'"
+      />`).join('');
+  } else {
+    thumbsEl.innerHTML = `<div class="modal-thumb-emoji">${p.emoji}</div>`;
+  }
+
+  document.getElementById('colour-opts').innerHTML =
+    p.colours.map((c,i) => {
+      const extra = c.priceExtra > 0 ? `+Rs ${c.priceExtra.toLocaleString()}`
+                  : c.priceExtra < 0 ? `-Rs ${Math.abs(c.priceExtra).toLocaleString()}` : '';
+      return `<div class="colour-swatch ${i===0?'on':''}"
+                   style="background:${c.hex}"
+                   title="${lang==='np'?c.labelNp:c.label}${extra?' ('+extra+')':''}"
+                   onclick="selectColour(${i},this)"></div>`;
+    }).join('');
+  document.getElementById('sel-colour-lbl').textContent = lang==='np' ? selColour.labelNp : selColour.label;
+
+  document.getElementById('size-opts').innerHTML =
+    p.sizes.map((s,i) => `
+      <button class="opt-btn ${i===0?'on':''}" onclick="selectSize(${i},this)">
+        <span>${lang==='np'?s.labelNp:s.label}</span>
+        <span class="opt-price-tag">Rs ${s.price.toLocaleString()}</span>
+      </button>`).join('');
+  document.getElementById('sel-size-lbl').textContent = lang==='np' ? selSize.labelNp : selSize.label;
+
+  document.getElementById('wood-opts').innerHTML =
+    p.woodTypes.map((w,i) => {
+      const extra = w.priceExtra !== 0
+        ? `${w.priceExtra > 0 ? '+' : ''}Rs ${w.priceExtra.toLocaleString()}` : '';
+      return `<button class="opt-btn ${i===0?'on':''}" onclick="selectWood(${i},this)">
+        <span>${lang==='np'?w.labelNp:w.label}</span>
+        ${extra ? `<span class="opt-price-tag">${extra}</span>` : ''}
+      </button>`;
+    }).join('');
+  document.getElementById('sel-wood-lbl').textContent = lang==='np' ? selWood.labelNp : selWood.label;
+
+  updateModalText();
+  updateLivePrice();
+}
+
+function updateModalText() {
+  const p = activeProduct;
+  document.getElementById('modal-cat').textContent  = lang==='np' ? p.catNp  : p.cat;
+  document.getElementById('modal-name').textContent = lang==='np' ? p.nameNp : p.name;
+  document.getElementById('modal-desc').innerHTML   = lang==='np' ? p.descNp : p.desc;
+  document.getElementById('modal-features').innerHTML =
+    (lang==='np' ? p.featuresNp : p.features).map(f=>`<li>${f}</li>`).join('');
+  document.getElementById('modal-qty').textContent = modalQty;
+}
+
+function switchMainImg(src, thumb) {
+  const imgEl = document.getElementById('modal-main-img');
+  const emoEl = document.getElementById('modal-emoji');
+  imgEl.src = src;
+  imgEl.onload  = () => { imgEl.style.display='block'; emoEl.style.display='none'; };
+  imgEl.onerror = () => { imgEl.style.display='none';  emoEl.style.display='block'; };
+  document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function calcPrice() {
+  if (!selSize || !selColour || !selWood) return 0;
+  return selSize.price + (selColour.priceExtra||0) + (selWood.priceExtra||0);
+}
+
+function updateLivePrice() {
+  const base   = selSize   ? selSize.price               : 0;
+  const cExtra = selColour ? (selColour.priceExtra || 0) : 0;
+  const wExtra = selWood   ? (selWood.priceExtra   || 0) : 0;
+  const total  = base + cExtra + wExtra;
+  const priceEl = document.getElementById('live-price');
+  priceEl.textContent = `Rs ${total.toLocaleString()}`;
+  priceEl.classList.remove('price-change-flash');
+  void priceEl.offsetWidth;
+  priceEl.classList.add('price-change-flash');
+  let bd = `${lang==='np'?'आधार':'Base (size)'}: Rs ${base.toLocaleString()}`;
+  if (cExtra) bd += ` · ${lang==='np'?'रंग':'Colour'}: ${cExtra>0?'+':''}Rs ${cExtra.toLocaleString()}`;
+  if (wExtra) bd += ` · ${lang==='np'?'काठ':'Wood'}: ${wExtra>0?'+':''}Rs ${wExtra.toLocaleString()}`;
+  document.getElementById('price-breakdown').textContent = bd;
+  document.getElementById('line-total').textContent =
+    modalQty > 1 ? `× ${modalQty} = Rs ${(total * modalQty).toLocaleString()}` : '';
+}
+
+function selectColour(i, el) {
+  selColour = activeProduct.colours[i];
+  document.querySelectorAll('.colour-swatch').forEach(s => s.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('sel-colour-lbl').textContent = lang==='np' ? selColour.labelNp : selColour.label;
+  updateLivePrice();
+}
+function selectSize(i, el) {
+  selSize = activeProduct.sizes[i];
+  document.querySelectorAll('.size-options .opt-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('sel-size-lbl').textContent = lang==='np' ? selSize.labelNp : selSize.label;
+  updateLivePrice();
+}
+function selectWood(i, el) {
+  selWood = activeProduct.woodTypes[i];
+  document.querySelectorAll('.wood-options .opt-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('sel-wood-lbl').textContent = lang==='np' ? selWood.labelNp : selWood.label;
+  updateLivePrice();
+}
+function changeQty(d) {
+  modalQty = Math.max(1, modalQty + d);
+  document.getElementById('modal-qty').textContent = modalQty;
+  updateLivePrice();
+}
+function closeModal()     { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
+function closeModalOut(e) { if (e.target.id==='modal-overlay') closeModal(); }
+
+// ═══════════════════════════════════════════════════════════
+//  CART
+// ═══════════════════════════════════════════════════════════
+function addToCartFromModal() {
+  if (!activeProduct) return;
+  const price  = calcPrice();
+  const key    = `${activeProduct.id}||${selColour.label}||${selSize.label}||${selWood.label}`;
+  const exists = cart.find(i => i.key === key);
+  if (exists) exists.qty += modalQty;
+  else cart.push({
+    key, id: activeProduct.id,
+    name: activeProduct.name, nameNp: activeProduct.nameNp,
+    images: activeProduct.images || [], emoji: activeProduct.emoji,
+    price, qty: modalQty,
+    colour: selColour, size: selSize, wood: selWood
+  });
+  updateCartCount(); renderCartDrawer(); closeModal(); openCart();
+}
+
+function quickAdd(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  const c = p.colours[0], s = p.sizes[0], w = p.woodTypes[0];
+  const price = s.price + (c.priceExtra||0) + (w.priceExtra||0);
+  const key   = `${p.id}||${c.label}||${s.label}||${w.label}`;
+  const ex    = cart.find(i => i.key === key);
+  if (ex) ex.qty++;
+  else cart.push({ key, id:p.id, name:p.name, nameNp:p.nameNp, images:p.images||[], emoji:p.emoji, price, qty:1, colour:c, size:s, wood:w });
+  updateCartCount(); renderCartDrawer();
+  showToast(lang==='np' ? `"${p.nameNp}" कार्टमा थपियो!` : `"${p.name}" added to cart!`);
+}
+
+function removeItem(key)     { cart=cart.filter(i=>i.key!==key); updateCartCount(); renderCartDrawer(); syncCheckout(); }
+function changeItemQty(key,d){ const it=cart.find(i=>i.key===key); if(it) it.qty=Math.max(1,it.qty+d); updateCartCount(); renderCartDrawer(); syncCheckout(); }
+function cartTotal()         { return cart.reduce((s,i)=>s+i.price*i.qty, 0); }
+function updateCartCount()   { document.getElementById('cart-count').textContent = cart.reduce((s,i)=>s+i.qty, 0); }
+
+function renderCartDrawer() {
+  const el = document.getElementById('cart-items-list');
+  if (!cart.length) {
+    el.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>${lang==='np'?'तपाईंको कार्ट खाली छ':'Your cart is empty'}</div></div>`;
+  } else {
+    el.innerHTML = cart.map(i => {
+      const imgPart = i.images && i.images.length
+        ? `<img src="${i.images[0]}" alt=""
+              onload="this.style.display='block';this.nextElementSibling.style.display='none'"
+              onerror="this.style.display='none'"
+           >`
+        : '';
+      return `<div class="cart-item">
+        <div class="ci-img">${imgPart}<span>${i.emoji}</span></div>
+        <div class="ci-info">
+          <div class="ci-name">${lang==='np'?i.nameNp:i.name}</div>
+          <div class="ci-opts">${lang==='np'?i.colour.labelNp:i.colour.label} · ${lang==='np'?i.size.labelNp:i.size.label} · ${lang==='np'?i.wood.labelNp:i.wood.label}</div>
+          <div class="ci-qty">
+            <button class="cqb" onclick="changeItemQty('${i.key}',-1)">−</button>
+            <span class="cqv">${i.qty}</span>
+            <button class="cqb" onclick="changeItemQty('${i.key}',1)">+</button>
+          </div>
+          <div class="ci-price">Rs ${(i.price*i.qty).toLocaleString()}</div>
+        </div>
+        <button class="ci-remove" onclick="removeItem('${i.key}')">✕</button>
+      </div>`;
+    }).join('');
+  }
+  document.getElementById('cart-subtotal-val').textContent = 'Rs ' + cartTotal().toLocaleString();
+}
+
+function openCart()  { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-drawer').classList.add('open'); }
+function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-drawer').classList.remove('open'); }
+
+// ═══════════════════════════════════════════════════════════
+//  CHECKOUT
+// ═══════════════════════════════════════════════════════════
+function openCheckout() {
+  if (!cart.length) { showToast(lang==='np'?'कार्ट खाली छ!':'Cart is empty!'); return; }
+  closeCart(); syncCheckout();
+  document.getElementById('checkout-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCheckout()     { document.getElementById('checkout-overlay').classList.remove('open'); document.body.style.overflow=''; }
+function closeCheckoutOut(e) { if (e.target.id==='checkout-overlay') closeCheckout(); }
+
+function syncCheckout() {
+  document.getElementById('co-items').innerHTML = cart.map(i => {
+    const imgPart = i.images && i.images.length
+      ? `<img src="${i.images[0]}" alt=""
+            onload="this.style.display='block';this.nextElementSibling.style.display='none'"
+            onerror="this.style.display='none'"
+         >`
+      : '';
+    return `<div class="co-item">
+      <div class="co-img">${imgPart}<span>${i.emoji}</span></div>
+      <div class="co-info">
+        <div class="co-name">${lang==='np'?i.nameNp:i.name} ×${i.qty}</div>
+        <div class="co-opts">${lang==='np'?i.colour.labelNp:i.colour.label} · ${lang==='np'?i.size.labelNp:i.size.label} · ${lang==='np'?i.wood.labelNp:i.wood.label}</div>
+      </div>
+      <div class="co-price">Rs ${(i.price*i.qty).toLocaleString()}</div>
+    </div>`;
+  }).join('');
+  const t = cartTotal();
+  document.getElementById('co-sub').textContent   = 'Rs ' + t.toLocaleString();
+  document.getElementById('co-total').textContent = 'Rs ' + t.toLocaleString();
+}
+
+// ═══════════════════════════════════════════════════════════
+//  PLACE ORDER — EMAILJS (owner + customer emails)
+// ═══════════════════════════════════════════════════════════
+async function placeOrder() {
+  const nameVal = document.getElementById('co-name').value.trim();
+  const phone   = document.getElementById('co-phone').value.trim();
+  const email   = document.getElementById('co-email').value.trim();
+  const addr    = document.getElementById('co-addr').value.trim();
+  const pay     = document.getElementById('co-pay').value;
+  const notes   = document.getElementById('co-notes').value.trim();
+  const errEl   = document.getElementById('form-error');
+  const btn     = document.getElementById('place-btn');
+
+  // Validation
+  errEl.style.display = 'none';
+  if (!nameVal || !phone || !addr) {
+    errEl.textContent = lang==='np'
+      ? 'कृपया नाम, फोन र ठेगाना भर्नुहोस्।'
+      : 'Please fill in your name, phone and address.';
+    errEl.style.display = 'block'; return;
+  }
+  if (!email || !email.includes('@')) {
+    errEl.textContent = lang==='np'
+      ? 'कृपया मान्य इमेल ठेगाना प्रविष्ट गर्नुहोस्।'
+      : 'Please enter a valid email — your order confirmation will be sent there.';
+    errEl.style.display = 'block'; return;
+  }
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    errEl.textContent = '⚙️ EmailJS not configured yet. Replace YOUR_PUBLIC_KEY and YOUR_SERVICE_ID in the script.';
+    errEl.style.display = 'block'; return;
+  }
+
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  const orderId    = 'SFU-' + Date.now().toString().slice(-6);
+  const orderDate  = new Date().toLocaleString('en-NP');
+
+  // Build a clean plain-text items list for the email body
+  const itemLines = cart.map(i =>
+    `${i.name} | ${i.colour.label} | ${i.size.label} | ${i.wood.label} x${i.qty} = Rs ${(i.price*i.qty).toLocaleString()}`
+  ).join('\n');
+
+  // Shared template variables — must match {{variable_name}} in your EmailJS templates exactly
+  const templateParams = {
+    order_id         : orderId,
+    order_date       : orderDate,
+    customer_name    : nameVal,
+    customer_phone   : phone,
+    customer_email   : email,          // used as To Email in customer template
+    delivery_address : addr,
+    payment_method   : pay,
+    notes            : notes || '—',
+    items_ordered    : itemLines,
+    order_total      : `Rs ${cartTotal().toLocaleString()}`,
+  };
+
+  try {
+    // ── Send 1: Owner notification ──────────────────────────
+    // EmailJS sends this to whichever "To Email" you set in the owner_notification template
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_OWNER_TEMPLATE, templateParams);
+
+    // ── Send 2: Customer confirmation ───────────────────────
+    // EmailJS sends this to {{customer_email}} as set in the customer_confirmation template
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_CUSTOMER_TEMPLATE, templateParams);
+
+    // ── SUCCESS ─────────────────────────────────────────────
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    closeCheckout();
+
+    const waMsg = `🪑 New Order ${orderId}\nName: ${nameVal}\nPhone: ${phone}\nItems: ${cart.map(i=>`${i.name} ×${i.qty}`).join(', ')}\nTotal: Rs ${cartTotal().toLocaleString()}`;
+    const waUrl = `https://wa.me/${SHOP_PHONE}?text=${encodeURIComponent(waMsg)}`;
+
+    const confirmSub = lang === 'np'
+      ? `तपाईंको अर्डर सफलतापूर्वक राखियो! हामी ${phone} मा २४ घण्टाभित्र सम्पर्क गर्नेछौँ।`
+      : `Your order has been received! We'll call you at ${phone} within 24 hours to confirm delivery.`;
+    const emailNote = lang === 'np'
+      ? `✉ अर्डरको पुष्टि ${email} मा पठाइएको छ।`
+      : `✉ A confirmation copy has been sent to ${email}.`;
+
+    document.getElementById('confirm-sub-text').textContent  = confirmSub;
+    document.getElementById('confirm-oid').textContent       = `Order ID: ${orderId}`;
+    document.getElementById('confirm-email-note').textContent= emailNote;
+    document.getElementById('confirm-wa-btn').onclick        = () => window.open(waUrl, '_blank');
+    document.getElementById('confirm-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+  } catch (err) {
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    console.error('EmailJS error:', err);
+    errEl.textContent = lang==='np'
+      ? `अर्डर पठाउन सकिएन (${err.text || err.message || 'unknown error'}). कृपया WhatsApp मार्फत सम्पर्क गर्नुहोस्।`
+      : `Could not send order (${err.text || err.message || 'unknown error'}). Please contact us via WhatsApp.`;
+    errEl.style.display = 'block';
+  }
+}
+
+function finishOrder() {
+  cart = [];
+  updateCartCount(); renderCartDrawer();
+  document.getElementById('confirm-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  ['co-name','co-phone','co-email','co-addr','co-notes'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+//  ORDER VIA WHATSAPP FROM MODAL
+// ═══════════════════════════════════════════════════════════
+function orderViaWA() {
+  if (!activeProduct) return;
+  const price = calcPrice();
+  const msg = `Hello Shrestha Furniture Udyog!\n\nI want to order:\nItem     : ${activeProduct.name}\nColour   : ${selColour.label}\nSize     : ${selSize.label}\nWood     : ${selWood.label}\nQuantity : ${modalQty}\nPrice    : Rs ${price.toLocaleString()} each\nTotal    : Rs ${(price * modalQty).toLocaleString()}\n\nPlease confirm availability and delivery.`;
+  window.open(`https://wa.me/${SHOP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ═══════════════════════════════════════════════════════════
+//  TOAST + KEYBOARD
+// ═══════════════════════════════════════════════════════════
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); closeCart(); closeCheckout(); }
+});
+
+// ═══════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════
+loadProducts();
+</script>
+</body>
+</html>

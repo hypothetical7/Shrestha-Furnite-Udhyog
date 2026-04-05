@@ -1,0 +1,260 @@
+[
+  {
+    "id": 1,
+    "category": "bedroom",
+    "badge": "sale",
+    "emoji": "🛏",
+    "images": [
+      "photos/bed.jpeg",
+      "photos/cupboard.jpeg"
+    ],
+    "name": "Royal Bed Frame",
+    "nameNp": "रोयल बेड फ्रेम",
+    "cat": "Bedroom",
+    "catNp": "बेडरूम",
+    "desc": "A majestic solid-wood bed frame with hand-carved headboard detailing. Built to last generations with premium joinery.",
+    "descNp": "हात-खोपिएको हेडबोर्डसहितको ठोस काठको बेड फ्रेम। उच्च गुणस्तरको जोडाइसहित पुस्तौँसम्म टिक्ने।",
+    "features": [
+      "Solid hardwood construction",
+      "Hand-carved headboard",
+      "Available in 3 wood types",
+      "Mattress not included",
+      "Free delivery in Jhapa"
+    ],
+    "featuresNp": [
+      "ठोस काठको निर्माण",
+      "हात-खोपिएको हेडबोर्ड",
+      "३ काठको प्रकारमा उपलब्ध",
+      "गद्दा समावेश छैन",
+      "झापामा निःशुल्क डेलिभरी"
+    ],
+    "colours": [
+      { "label": "Walnut Brown", "labelNp": "वालनट खैरो", "hex": "#6B4226", "priceExtra": 0 },
+      { "label": "Natural Oak",  "labelNp": "नेचुरल ओक",  "hex": "#C4A07A", "priceExtra": 0 },
+      { "label": "Ebony Black",  "labelNp": "कालो",        "hex": "#2A2520", "priceExtra": 2000 }
+    ],
+    "sizes": [
+      { "label": "Single (3×6 ft)", "labelNp": "सिंगल (३×६ फिट)", "price": 32000 },
+      { "label": "Double (4×6 ft)", "labelNp": "डबल (४×६ फिट)",  "price": 38000 },
+      { "label": "Queen (5×6 ft)",  "labelNp": "क्वीन (५×६ फिट)", "price": 45000 },
+      { "label": "King (6×6 ft)",   "labelNp": "किंग (६×६ फिट)",  "price": 55000 }
+    ],
+    "woodTypes": [
+      { "label": "Sal Wood", "labelNp": "साल काठ",    "priceExtra": 0 },
+      { "label": "Teak",     "labelNp": "सागवान",     "priceExtra": 5000 },
+      { "label": "Sisso",    "labelNp": "सिसौ",       "priceExtra": 3000 }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "bedroom",
+    "badge": "",
+    "emoji": "🚪",
+    "images": [
+      "photos/cupboard.jpeg"
+    ],
+    "name": "3-Door Wardrobe",
+    "nameNp": "३ ढोके वार्डरोब",
+    "cat": "Bedroom",
+    "catNp": "बेडरूम",
+    "desc": "Spacious 3-door wardrobe with mirror panel, internal shelving, and hanging space. Perfect for any bedroom size.",
+    "descNp": "ऐना प्यानल, भित्री सेल्फ र झुन्ड्याउने ठाउँसहितको विशाल ३-ढोके वार्डरोब।",
+    "features": [
+      "3-panel door with central mirror",
+      "Full-length hanging rail",
+      "4 internal shelves",
+      "Soft-close hinges",
+      "Available with/without mirror"
+    ],
+    "featuresNp": [
+      "बीचमा ऐनासहितको ३-प्यानल ढोका",
+      "पूर्ण लम्बाइको हेङ्गिङ रेल",
+      "४ भित्री सेल्फ",
+      "सफ्ट-क्लोज हिन्ज",
+      "ऐनासहित/बिना उपलब्ध"
+    ],
+    "colours": [
+      { "label": "Walnut Brown", "labelNp": "वालनट खैरो", "hex": "#6B4226", "priceExtra": 0 },
+      { "label": "Natural Oak",  "labelNp": "नेचुरल ओक",  "hex": "#C4A07A", "priceExtra": 0 },
+      { "label": "White Oak",    "labelNp": "सेतो ओक",    "hex": "#E8D8C4", "priceExtra": 1500 }
+    ],
+    "sizes": [
+      { "label": "4 ft wide", "labelNp": "४ फिट चौडाइ", "price": 28000 },
+      { "label": "5 ft wide", "labelNp": "५ फिट चौडाइ", "price": 34000 },
+      { "label": "6 ft wide", "labelNp": "६ फिट चौडाइ", "price": 42000 }
+    ],
+    "woodTypes": [
+      { "label": "Sal Wood",          "labelNp": "साल काठ",        "priceExtra": 0 },
+      { "label": "Teak",              "labelNp": "सागवान",         "priceExtra": 6000 },
+      { "label": "Plywood (Economy)", "labelNp": "प्लाइवुड (सस्तो)", "priceExtra": -3000 }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "living",
+    "badge": "sale",
+    "emoji": "🛋",
+    "images": ["photos/sofablue.jpeg"],
+    "name": "5-Seater Sofa Set",
+    "nameNp": "५-सिटर सोफा सेट",
+    "cat": "Living Room",
+    "catNp": "बैठक कोठा",
+    "desc": "Elegant 5-seater sofa set (3+1+1) with solid wood frame and premium cushioning. The centerpiece of any living room.",
+    "descNp": "ठोस काठको फ्रेम र उच्च गुणस्तरको कुसनसहितको सुन्दर ५-सिटर सोफा सेट (३+१+१)।",
+    "features": [
+      "3+1+1 configuration",
+      "Solid Sal/Teak frame",
+      "Premium foam cushions",
+      "Choice of fabric or leatherette",
+      "Matching centre table available"
+    ],
+    "featuresNp": [
+      "३+१+१ कन्फिगरेसन",
+      "ठोस साल/सागवान फ्रेम",
+      "उच्च गुणस्तरको फोम कुसन",
+      "कपडा वा लेदरेट छनोट",
+      "म्याचिङ सेन्टर टेबल उपलब्ध"
+    ],
+    "colours": [
+      { "label": "Dark Brown",  "labelNp": "गाढा खैरो", "hex": "#5C3D1E", "priceExtra": 0 },
+      { "label": "Beige",       "labelNp": "बेज",       "hex": "#D4C4A8", "priceExtra": 0 },
+      { "label": "Grey",        "labelNp": "ग्रे",      "hex": "#808080", "priceExtra": 0 },
+      { "label": "Maroon",      "labelNp": "मरुन",     "hex": "#7D0000", "priceExtra": 1500 }
+    ],
+    "sizes": [
+      { "label": "Standard (3+1+1)", "labelNp": "स्ट्यान्डर्ड (३+१+१)", "price": 55000 },
+      { "label": "Large (3+2+1)",    "labelNp": "ठूलो (३+२+१)",         "price": 68000 }
+    ],
+    "woodTypes": [
+      { "label": "Sal Wood", "labelNp": "साल काठ", "priceExtra": 0 },
+      { "label": "Teak",     "labelNp": "सागवान",  "priceExtra": 8000 }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "dining",
+    "badge": "sale",
+    "emoji": "🍽",
+    "images": ["photos/diningset.jpeg"],
+    "name": "6-Seater Dining Set",
+    "nameNp": "६-सिटर डाइनिङ सेट",
+    "cat": "Dining",
+    "catNp": "डाइनिङ",
+    "desc": "Classic 6-seater dining table with 6 cushioned chairs. Built from premium hardwood with a durable lacquer finish.",
+    "descNp": "६ कुसन कुर्सीसहितको क्लासिक ६-सिटर डाइनिङ टेबल। टिकाउ ल्याकर फिनिशसहितको उच्च गुणस्तरको काठबाट बनेको।",
+    "features": [
+      "Seats 6 comfortably",
+      "Cushioned chair seats",
+      "Sturdy hardwood frame",
+      "Scratch-resistant surface",
+      "Can be extended to 8 seats"
+    ],
+    "featuresNp": [
+      "सहजै ६ जना बस्न सक्छन्",
+      "कुसन भएका कुर्सी",
+      "बलियो काठको फ्रेम",
+      "खर्किनु नहुने सतह",
+      "८ सिटसम्म बढाउन सकिन्छ"
+    ],
+    "colours": [
+      { "label": "Dark Walnut", "labelNp": "गाढा वालनट", "hex": "#4A2810", "priceExtra": 0 },
+      { "label": "Natural Oak", "labelNp": "नेचुरल ओक",  "hex": "#C4A07A", "priceExtra": 0 },
+      { "label": "Cherry Red",  "labelNp": "चेरी रातो",  "hex": "#8B2020", "priceExtra": 2000 }
+    ],
+    "sizes": [
+      { "label": "4-Seater", "labelNp": "४-सिटर", "price": 32000 },
+      { "label": "6-Seater", "labelNp": "६-सिटर", "price": 48000 },
+      { "label": "8-Seater", "labelNp": "८-सिटर", "price": 62000 }
+    ],
+    "woodTypes": [
+      { "label": "Sal Wood", "labelNp": "साल काठ", "priceExtra": 0 },
+      { "label": "Teak",     "labelNp": "सागवान",  "priceExtra": 7000 },
+      { "label": "Sisso",    "labelNp": "सिसौ",    "priceExtra": 4000 }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "office",
+    "badge": "",
+    "emoji": "🖥",
+    "images": ["photos/cupboardwhite.jpeg"],
+    "name": "Executive Office Desk",
+    "nameNp": "एक्जिक्युटिभ अफिस डेस्क",
+    "cat": "Office",
+    "catNp": "कार्यालय",
+    "desc": "Professional executive desk with cable management, drawer unit, and a smooth laminate top. Available straight or L-shaped.",
+    "descNp": "केबल म्यानेजमेन्ट, ड्रअर युनिट र चिल्लो ल्यामिनेट टपसहितको पेशेवर एक्जिक्युटिभ डेस्क।",
+    "features": [
+      "Straight or L-shape layout",
+      "Built-in 3-drawer pedestal",
+      "Cable management grommets",
+      "Scratch-resistant laminate top",
+      "Available with/without hutch"
+    ],
+    "featuresNp": [
+      "सिधो वा L-आकार ल्याआउट",
+      "बिल्ट-इन ३-ड्रअर पेडेस्टल",
+      "केबल म्यानेजमेन्ट",
+      "खर्किनु नहुने ल्यामिनेट टप",
+      "हचसहित/बिना उपलब्ध"
+    ],
+    "colours": [
+      { "label": "Dark Walnut", "labelNp": "गाढा वालनट", "hex": "#4A2810", "priceExtra": 0 },
+      { "label": "Light Oak",   "labelNp": "हल्का ओक",   "hex": "#D4B896", "priceExtra": 0 },
+      { "label": "White",       "labelNp": "सेतो",       "hex": "#F0EDE8", "priceExtra": 1000 }
+    ],
+    "sizes": [
+      { "label": "4 ft straight",    "labelNp": "४ फिट सिधो",      "price": 18000 },
+      { "label": "5 ft straight",    "labelNp": "५ फिट सिधो",      "price": 22000 },
+      { "label": "L-shape (4×3 ft)", "labelNp": "L-आकार (४×३ फिट)", "price": 28000 },
+      { "label": "L-shape (5×4 ft)", "labelNp": "L-आकार (५×४ फिट)", "price": 35000 }
+    ],
+    "woodTypes": [
+      { "label": "MDF + Laminate",      "labelNp": "MDF + ल्यामिनेट",      "priceExtra": 0 },
+      { "label": "Plywood + Laminate",  "labelNp": "प्लाइवुड + ल्यामिनेट", "priceExtra": 3000 },
+      { "label": "Sal Wood",            "labelNp": "साल काठ",               "priceExtra": 5000 }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "storage",
+    "badge": "sale",
+    "emoji": "📺",
+    "images": ["photos/cupboardwhite.jpeg"],
+    "name": "TV Unit / Entertainment Stand",
+    "nameNp": "टीभी युनिट",
+    "cat": "Storage",
+    "catNp": "भण्डारण",
+    "desc": "Modern wall-length TV unit with open shelves, closed cabinets, and a raised TV platform. Fits TVs up to 75 inches.",
+    "descNp": "खुला सेल्फ, बन्द क्याबिनेट र उठेको टीभी प्लेटफर्मसहितको आधुनिक दीवार-लम्बाइको टीभी युनिट।",
+    "features": [
+      "Fits TVs up to 75 inches",
+      "Mix of open and closed storage",
+      "Cable management holes",
+      "Solid wood + MDF combo",
+      "Modular — can extend"
+    ],
+    "featuresNp": [
+      "७५ इन्चसम्मको टीभी फिट",
+      "खुला र बन्द भण्डारणको मिश्रण",
+      "केबल म्यानेजमेन्ट होल",
+      "ठोस काठ + MDF कम्बो",
+      "मड्युलर — विस्तार गर्न सकिन्छ"
+    ],
+    "colours": [
+      { "label": "Walnut",   "labelNp": "वालनट", "hex": "#6B4226", "priceExtra": 0 },
+      { "label": "White",    "labelNp": "सेतो",  "hex": "#F0EDE8", "priceExtra": 0 },
+      { "label": "Dark Oak", "labelNp": "गाढा ओक","hex": "#4A3018", "priceExtra": 1500 }
+    ],
+    "sizes": [
+      { "label": "4 ft",              "labelNp": "४ फिट",      "price": 14000 },
+      { "label": "5 ft",              "labelNp": "५ फिट",      "price": 17000 },
+      { "label": "6 ft",              "labelNp": "६ फिट",      "price": 20000 },
+      { "label": "7 ft (Wall Length)","labelNp": "७ फिट (दीवार लम्बाइ)", "price": 26000 }
+    ],
+    "woodTypes": [
+      { "label": "Sal Wood",           "labelNp": "साल काठ",        "priceExtra": 0 },
+      { "label": "Plywood + Laminate", "labelNp": "प्लाइवुड + ल्यामिनेट", "priceExtra": -2000 }
+    ]
+  }
+]
